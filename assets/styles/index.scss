@@ -1,6 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'variables';
 
+.top-status-container {
+  display: flex;
+  justify-content: center;
+}
+
+.top-status-bar {
+  // width: 90%;
+  // border: 1px solid $black;
+  flex-basis: 80%;
+  height: 20px;
+  // display: flex;
+  margin-bottom: 20px;
+  padding-bottom: 1.5em;
+
+  & > div {
+    text-align: center;
+  }
+}
+
 .board-row {
   display: flex;
   height: 450px;
@@ -30,7 +49,6 @@
   // flex: 1;
   flex-basis: 15%;
 }
-
 // .game-table {
 //   tr {
 //     td {
