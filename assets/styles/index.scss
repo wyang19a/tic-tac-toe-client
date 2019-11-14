@@ -1,1 +1,49 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'variables';
+
+.board-row {
+  display: flex;
+  height: 450px;
+  justify-content: space-around;
+}
+
+.board-left {
+  border: 1px solid $black;
+  // flex: 1;
+  flex-basis: 15%;
+}
+
+.game-table {
+  border: 1px solid $black;
+  // flex: 3;
+  flex-basis: 80%;
+
+  tr {
+    td {
+      border: 3px solid $black;
+    }
+  }
+}
+
+.board-right {
+  border: 1px solid $black;
+  // flex: 1;
+  flex-basis: 15%;
+}
+
+// .game-table {
+//   tr {
+//     td {
+//       border: 3px solid $black;
+//     }
+//   }
+// }
+
+tr {
+  td {
+    height: 150px;
+    padding: 5px;
+    text-align: center;
+    width: 150px;
+  }
+}
