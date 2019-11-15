@@ -1,17 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Tic-Tac-Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Tic-Tac-Toe</h1>
+  <div class="top-status-container">
+    <div class="top-status-bar">
+      <div class="game-inactive">Click start to begin!</div>
+    </div>
+  </div>
+  <div class="board-row">
+    <div class="board-left">game status
+      <!-- <div class="current-player">
+        <span class="game-active"></span>
+      </div> -->
+    </div>
+    <div class="board">
+      <table class="game-table">
+        <tr>
+          <td id="grid0"></td>
+          <td id="grid1"></td>
+          <td id="grid2"></td>
+        </tr>
+        <tr>
+          <td id="grid3"></td>
+          <td id="grid4"></td>
+          <td id="grid5"></td>
+        </tr>
+        <tr>
+          <td id="grid6"></td>
+          <td id="grid7"></td>
+          <td id="grid8"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="board-right">buttons</div>
+  </div>
+</body>
+
 </html>
