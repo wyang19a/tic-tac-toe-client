@@ -5,7 +5,7 @@
 // const emptyBoard = ['', '', '', '', '', '', '', '', '']
 
 // assign grid to emptyBoard[i]
-// push player.player_x or player.player_o to emptyBoard[i] by clicking on a grid
+// push currentPlayer to emptyBoard[i] by clicking on a grid
 
 // start with currentPlayer X, change back and forth depending what's in currentPlayer.
 let currentPlayer = 'X'
@@ -29,11 +29,26 @@ const onPlayMove = event => {
     }
   }
   putValue()
+  console.log(clickOnGrid)
 }
-// check for winner
+// let winner = true
 // const checkForWinner = () => {
-//
+//   if ()
 // }
+// check for winner
+// winning combinations
+// 0 1 2
+// 0 3 6
+// 0 4 8
+// 1 4 7
+// 2 4 6
+// 2 5 8
+// 3 4 5
+// 6 7 8
+
+// checForWin should be done after each click
+// if combination matches, games stops
+//
 
 const addHandlers = event => {
   $('.game-table').on('click', onPlayMove)

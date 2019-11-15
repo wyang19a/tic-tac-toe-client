@@ -15,6 +15,28 @@
 
 <body>
   <h1>Tic-Tac-Toe</h1>
+  <section class="beforeSignIn">
+  </br>
+  <div id="message"></div>
+</br>
+<h3>Sign up</h3>
+<form id="sign-up">
+  Please do not use real personal email/password. Use fake(e.g. babo@babo, pw: 123)
+</br>
+  <input type="email" name="credentials[email]" placeholder="Email">
+  <input type="password" name="credentials[password]" placeholder="Password">
+  <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+  <button class="btn btn-primary">Submit</button>
+</form>
+</br>
+<h3>Sign In</h3>
+<form id="sign-in">
+  <input type="email" name="credentials[email]" placeholder="Email">
+  <input type="password" name="credentials[password]" placeholder="Password">
+  <button class="btn btn-primary">Submit</button>
+</form>
+  </section>
+  <section class="afterSignIn">
   <div class="top-status-container">
     <div class="top-status-bar">
       <div class="game-inactive">Click start to begin!</div>
@@ -22,9 +44,6 @@
   </div>
   <div class="board-row">
     <div class="board-left">game status
-      <!-- <div class="current-player">
-        <span class="game-active"></span>
-      </div> -->
     </div>
     <div class="board">
       <table class="game-table">
@@ -47,6 +66,18 @@
     </div>
     <div class="board-right">buttons</div>
   </div>
+  <h2>Sign Out</h2>
+    <form id="sign-out">
+      <button class="btn btn-danger">Sign Out</button>
+    </form>
+    </br>
+  <h3>Change Password</h3>
+  <form id="change-password">
+    <input type="text" name="passwords[old]" placeholder="old password">
+    <input type="text" name="passwords[new]" placeholder="new password">
+    <button class="btn btn-primary">Submit</button>
+  </form>
+</section>
 </body>
 
 </html>
