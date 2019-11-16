@@ -47,37 +47,23 @@ const onPlayMove = event => {
     }
     const storedCell = store.game.cells
     const checkForWin = () => {
-      if (storedCell[0] === 'X' && storedCell[1] === 'X' && storedCell[2] === 'X') {
+      if ((storedCell[0] === 'X' && storedCell[1] === 'X' && storedCell[2] === 'X') ||
+      (storedCell[0] === 'X' && storedCell[3] === 'X' && storedCell[6] === 'X') ||
+      (storedCell[0] === 'X' && storedCell[4] === 'X' && storedCell[8] === 'X') ||
+      (storedCell[1] === 'X' && storedCell[4] === 'X' && storedCell[7] === 'X') ||
+      (storedCell[2] === 'X' && storedCell[4] === 'X' && storedCell[6] === 'X') ||
+      (storedCell[2] === 'X' && storedCell[5] === 'X' && storedCell[8] === 'X') ||
+      (storedCell[3] === 'X' && storedCell[4] === 'X' && storedCell[5] === 'X') ||
+      (storedCell[6] === 'X' && storedCell[7] === 'X' && storedCell[8] === 'X')) {
         console.log('X wins')
-      } else if (storedCell[0] === 'X' && storedCell[3] === 'X' && storedCell[6] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[0] === 'X' && storedCell[4] === 'X' && storedCell[8] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[1] === 'X' && storedCell[4] === 'X' && storedCell[7] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[2] === 'X' && storedCell[4] === 'X' && storedCell[6] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[2] === 'X' && storedCell[5] === 'X' && storedCell[8] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[3] === 'X' && storedCell[4] === 'X' && storedCell[5] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[6] === 'X' && storedCell[7] === 'X' && storedCell[8] === 'X') {
-        console.log('X wins')
-      } else if (storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[1] === 'O' && storedCell[4] === 'O' && storedCell[7] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[2] === 'O' && storedCell[4] === 'O' && storedCell[6] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[2] === 'O' && storedCell[5] === 'O' && storedCell[8] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[3] === 'O' && storedCell[4] === 'O' && storedCell[5] === 'O') {
-        console.log('O wins')
-      } else if (storedCell[6] === 'O' && storedCell[7] === 'O' && storedCell[8] === 'O') {
+      } else if ((storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') ||
+      (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') ||
+      (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') ||
+      (storedCell[1] === 'O' && storedCell[4] === 'O' && storedCell[7] === 'O') ||
+      (storedCell[2] === 'O' && storedCell[4] === 'O' && storedCell[6] === 'O') ||
+      (storedCell[2] === 'O' && storedCell[5] === 'O' && storedCell[8] === 'O') ||
+      (storedCell[3] === 'O' && storedCell[4] === 'O' && storedCell[5] === 'O') ||
+      (storedCell[6] === 'O' && storedCell[7] === 'O' && storedCell[8] === 'O')) {
         console.log('O wins')
       }
     }
