@@ -30,7 +30,7 @@ const onSignUpFailure = () => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user // add token to store
-  // console.log(store.user)
+  // console.log('user is', store.user)
   onSuccess('You are signed in!')
   $('.afterSignIn').show()
   $('.beforeSignIn').hide()

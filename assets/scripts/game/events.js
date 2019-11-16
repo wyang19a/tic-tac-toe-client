@@ -1,9 +1,25 @@
 'use strict'
-// const ui = require('./ui')
+
+const ui = require('./ui')
+const api = require('./api')
+const store = require('../store')
+
 // const currentPlayer = 'X'
 
 // const emptyBoard = ['', '', '', '', '', '', '', '', '']
 
+const onNewGame = () => {
+  // console.log('new game')
+  api.newGame()
+    .then(ui.onGameStartSuccess)
+    .catch(console.error)
+  $('td').html('')
+}
+// const onApiMove = () => {
+//   api.playMove()
+//     .then(ui.onMoveSuccess)
+//     .catch(ui.onMoveFailure)
+// }
 // assign grid to emptyBoard[i]
 // push currentPlayer to emptyBoard[i] by clicking on a grid
 
@@ -16,35 +32,61 @@ const toggleTurn = () => {
     currentPlayer = 'X'
   }
 }
+
 // listen for click, push X or O only if there's no string inside.
+
 const onPlayMove = event => {
   const clickOnGrid = $(event.target)
+  const pushGridID = event.target.id
   const putValue = () => {
     // if there is no value inside clicked box, run toggleTurn() and pass in currentPlayer
     if (clickOnGrid.html() === '') {
+      store.game.cells[pushGridID] = currentPlayer
       clickOnGrid.html(currentPlayer, toggleTurn())
       // else, if there's any html, do nothing and just console log for now.
-    } else {
-      console.log('already selected')
     }
+    const storedCell = store.game.cells
+    const checkForWin = () => {
+      if (storedCell[0] === 'X' && storedCell[1] === 'X' && storedCell[2] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[0] === 'X' && storedCell[3] === 'X' && storedCell[6] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[0] === 'X' && storedCell[4] === 'X' && storedCell[8] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[1] === 'X' && storedCell[4] === 'X' && storedCell[7] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[2] === 'X' && storedCell[4] === 'X' && storedCell[6] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[2] === 'X' && storedCell[5] === 'X' && storedCell[8] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[3] === 'X' && storedCell[4] === 'X' && storedCell[5] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[6] === 'X' && storedCell[7] === 'X' && storedCell[8] === 'X') {
+        console.log('X wins')
+      } else if (storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[1] === 'O' && storedCell[4] === 'O' && storedCell[7] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[2] === 'O' && storedCell[4] === 'O' && storedCell[6] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[2] === 'O' && storedCell[5] === 'O' && storedCell[8] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[3] === 'O' && storedCell[4] === 'O' && storedCell[5] === 'O') {
+        console.log('O wins')
+      } else if (storedCell[6] === 'O' && storedCell[7] === 'O' && storedCell[8] === 'O') {
+        console.log('O wins')
+      }
+    }
+    checkForWin()
+    console.log(store.game.cells)
   }
   putValue()
-  console.log(clickOnGrid)
+  // console.log(clickOnGrid)
 }
-// let winner = true
-// const checkForWinner = () => {
-//   if ()
-// }
-// check for winner
-// winning combinations
-// 0 1 2
-// 0 3 6
-// 0 4 8
-// 1 4 7
-// 2 4 6
-// 2 5 8
-// 3 4 5
-// 6 7 8
 
 // checForWin should be done after each click
 // if combination matches, games stops
@@ -52,6 +94,8 @@ const onPlayMove = event => {
 
 const addHandlers = event => {
   $('.game-table').on('click', onPlayMove)
+  // $('.game-table').on('click', onApiMove)
+  $('.newGame').on('click', onNewGame)
 }
 
 module.exports = {
