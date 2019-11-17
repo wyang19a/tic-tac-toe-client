@@ -4,12 +4,27 @@ const store = require('../store')
 $('.game-active-top').hide()
 // $('.game-table').hide()
 
+const getGamesSuccess = response => {
+  const games = response.games
+
+  let gamesHtml = ''
+
+  games.forEach(games => {
+    gamesHtml += `
+      <h4>${games.id}</h4>
+      <h5>${games.cells}</h5>
+      <p>${games.over}</p>
+      <p>${games.player_x.email}</p>
+    `
+  })
+  $('#results').html(gamesHtml)
+}
+
 const onSuccess = message => {
   $('#gameMessages')
     .removeClass('failure')
     .addClass('success')
     .text(message)
-  // $('form').trigger('reset')
 }
 
 const onFailure = message => {
@@ -17,7 +32,6 @@ const onFailure = message => {
     .removeClass('success')
     .addClass('failure')
     .text(message)
-  // $('form').trigger('reset')
 }
 
 const onMove = (message) => {
@@ -33,15 +47,18 @@ const onGameStartSuccess = responseData => {
   $('.game-active-top').show()
   $('.game-inactive').hide()
 }
-
+const onGameStartFailure = (message) => {
+  onFailure(message)
+}
 const onMoveSuccess = (message) => {
   onSuccess(message)
   $('.game-active').show()
   $('.game-inactive').hide()
+  $('#gameErrors').hide()
 }
 
 const onMoveFailure = () => {
-  onFailure("It's already taken. Please choose another")
+  $('#gameErrors').html('Box already taken. Please choose another').show()
 }
 
 const onWinner = (message) => {
@@ -62,9 +79,11 @@ const onGameFinish = (message) => {
 module.exports = {
   onMove,
   onGameStartSuccess,
+  onGameStartFailure,
   onMoveSuccess,
   onMoveFailure,
   onWinner,
   onGameFinish,
-  onDraw
+  onDraw,
+  getGamesSuccess
 }

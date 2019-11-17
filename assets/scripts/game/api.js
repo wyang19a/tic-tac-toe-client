@@ -13,18 +13,38 @@ const newGame = () => {
   })
 }
 
-const playMove = data => {
+const updateGame = (index, value, over) => {
   return $.ajax({
-    url: config.apiUrl + store.game.id,
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
     },
-    data: data
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': over
+      }
+    }
   })
 }
 
+const getAllGames = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+console.log(getAllGames)
+
 module.exports = {
   newGame,
-  playMove
+  updateGame,
+  getAllGames
 }

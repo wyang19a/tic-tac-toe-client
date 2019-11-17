@@ -44,7 +44,9 @@
       </div>
     </div>
     <div class="board-row">
-      <div class="board-left"><div class="game-active" id="gameMessages"></div>
+      <div class="board-left">
+        <div class="game-active" id="gameMessages"></div>
+        <div class="game-active" id="gameErrors"></div>
       </div>
       <div class="board">
         <table class="game-table">
@@ -67,6 +69,7 @@
       </div>
       <div class="board-right">
         <button class="newGame btn btn-primary">start over</button>
+        <button class="getAllGames btn btn-primary">getAllGames</button>
     </div>
     </div>
     <form id="sign-out">
@@ -79,6 +82,7 @@
       <input type="text" name="passwords[new]" placeholder="new password">
       <button class="btn btn-primary">Submit</button>
     </form>
+    <div id="results"></div>
   </section>
 </body>
 
