@@ -25,7 +25,6 @@ const onSuccess = message => {
     .removeClass('failure')
     .addClass('success')
     .text(message)
-  // $('form').trigger('reset')
 }
 
 const onFailure = message => {
@@ -33,7 +32,6 @@ const onFailure = message => {
     .removeClass('success')
     .addClass('failure')
     .text(message)
-  // $('form').trigger('reset')
 }
 
 const onMove = (message) => {
@@ -56,10 +54,11 @@ const onMoveSuccess = (message) => {
   onSuccess(message)
   $('.game-active').show()
   $('.game-inactive').hide()
+  $('#gameErrors').hide()
 }
 
 const onMoveFailure = () => {
-  onFailure("It's already taken. Please choose another")
+  $('#gameErrors').html('Box already taken. Please choose another').show()
 }
 
 const onWinner = (message) => {

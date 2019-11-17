@@ -16,6 +16,7 @@ const onNewGame = () => {
     .then(ui.onGameStartSuccess)
     .catch(ui.onGameStartFailure)
   $('td').html('')
+  currentPlayer = 'X'
 }
 
 // start with currentPlayer X, change back and forth depending what's in currentPlayer.
@@ -26,12 +27,12 @@ const toggleTurn = () => {
   if (currentPlayer === 'X') {
     currentPlayer = 'O'
     moveNum += 1
-    return ui.onMoveSuccess('Turn: O')
+    return ui.onMove('Turn: O')
   // if current player is O, change current player to X and add number of move.
   } else if (currentPlayer === 'O') {
     currentPlayer = 'X'
     moveNum += 1
-    return ui.onMoveSuccess('Turn: X')
+    return ui.onMove('Turn: X')
   }
 }
 
@@ -60,6 +61,9 @@ const onPlayMove = event => {
       console.log('here', store.game)
       // let over = store.game.over
       clickOnGrid.html(currentPlayer, toggleTurn())
+      return ui.onMoveSuccess()
+    } else {
+      return ui.onMoveFailure()
     }
   }
   putValue()
