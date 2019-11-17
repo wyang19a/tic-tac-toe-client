@@ -39,12 +39,12 @@
   <section class="afterSignIn">
     <div class="top-status-container">
       <div class="top-status-bar">
-        <div class="game-inactive">Press <button class="newGame" class="btn btn-primary">new game</button> to begin!</div>
-        <div class="game-active" id="gameMessages"></div>
+        <div class="game-inactive">Press <button class="newGame btn btn-primary">new game</button> to begin!</div>
+        <div class="game-active-top">Game on</div>
       </div>
     </div>
     <div class="board-row">
-      <div class="board-left">game status
+      <div class="board-left"><div class="game-active" id="gameMessages"></div>
       </div>
       <div class="board">
         <table class="game-table">
@@ -66,7 +66,7 @@
         </table>
       </div>
       <div class="board-right">
-        <button class="newGame" class="btn btn-primary">start over</button>
+        <button class="newGame btn btn-primary">start over</button>
     </div>
     </div>
     <form id="sign-out">
