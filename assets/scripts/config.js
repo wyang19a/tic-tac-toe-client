@@ -2,8 +2,8 @@
 
 let apiUrl
 const apiUrls = {
-  production: 'https://tic-tac-toe-wdi.herokuapp.com',
-  development: 'https://tic-tac-toe-wdi-production.herokuapp.com'
+  development: 'https://tic-tac-toe-wdi.herokuapp.com/',
+  production: 'https://tic-tac-toe-wdi-production.herokuapp.com'
   // http://localhost:4741'
 }
 
