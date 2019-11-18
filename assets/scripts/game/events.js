@@ -32,6 +32,7 @@ const onNewGame = () => {
     .then(ui.onGameStartSuccess)
     .catch(ui.onGameStartFailure)
   $('td').html('')
+  $('#gameErrors').hide()
   moveNum = 0
   currentPlayer = 'X'
 }
