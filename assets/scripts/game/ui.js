@@ -11,13 +11,62 @@ const getGamesSuccess = response => {
 
   games.forEach(games => {
     gamesHtml += `
-      <h4>${games.id}</h4>
-      <h5>${games.cells}</h5>
-      <p>${games.over}</p>
-      <p>${games.player_x.email}</p>
+      <h4>Game ID: ${games.id}</h4>
+      <table class="game-table">
+        <tr>
+          <td class="recordCell">${games.cells[0]}</td>
+          <td class="recordCell">${games.cells[1]}</td>
+          <td class="recordCell">${games.cells[2]}</td>
+        </tr>
+        <tr>
+          <td class="recordCell">${games.cells[3]}</td>
+          <td class="recordCell">${games.cells[4]}</td>
+          <td class="recordCell">${games.cells[5]}</td>
+        </tr>
+        <tr>
+          <td class="recordCell">${games.cells[6]}</td>
+          <td class="recordCell">${games.cells[7]}</td>
+          <td class="recordCell">${games.cells[8]}</td>
+        </tr>
+      </table>
+      <p>Game over? ${games.over}</p>
+      <p>User email: ${games.player_x.email}</p>
     `
   })
   $('#results').html(gamesHtml)
+}
+
+const getGameSuccess = (data) => {
+  const game = data.game
+  const bookHtml = `
+  <h4>Game ID: ${game.id}</h4>
+  <table class="game-table">
+    <tr>
+      <td class="recordCell">${game.cells[0]}</td>
+      <td class="recordCell">${game.cells[1]}</td>
+      <td class="recordCell">${game.cells[2]}</td>
+    </tr>
+    <tr>
+      <td class="recordCell">${game.cells[3]}</td>
+      <td class="recordCell">${game.cells[4]}</td>
+      <td class="recordCell">${game.cells[5]}</td>
+    </tr>
+    <tr>
+      <td class="recordCell">${game.cells[6]}</td>
+      <td class="recordCell">${game.cells[7]}</td>
+      <td class="recordCell">${game.cells[8]}</td>
+    </tr>
+  </table>
+  <p>Game over? ${game.over}</p>
+  <p>User email: ${game.player_x.email}</p>
+  `
+  $('#results').html('').html(bookHtml)
+  $('form').trigger('reset')
+}
+
+const getGameFailure = () => {
+  $('.accountMessages').html('Invalid game ID. Please try again.')
+  $('form').trigger('reset')
 }
 
 const onSuccess = message => {
@@ -46,6 +95,7 @@ const onGameStartSuccess = responseData => {
   onSuccess('Make your first move.')
   $('.game-active-top').show()
   $('.game-inactive').hide()
+  $('.showGameID').html('This is Game ID: ' + store.game.id)
 }
 const onGameStartFailure = (message) => {
   onFailure(message)
@@ -85,5 +135,7 @@ module.exports = {
   onWinner,
   onGameFinish,
   onDraw,
-  getGamesSuccess
+  getGamesSuccess,
+  getGameSuccess,
+  getGameFailure
 }

@@ -3,6 +3,7 @@
 const store = require('../store')
 
 $('.afterSignIn').hide()
+$('.accountMenu').hide()
 
 const onSuccess = message => {
   $('#message')
@@ -47,10 +48,12 @@ const onSignInFailure = () => {
 
 const onChangePasswordSuccess = () => {
   onSuccess('Password change successful.')
+  $('form').trigger('reset')
 }
 
 const onChangePasswordFailure = () => {
-  onFailure('Try again.')
+  $('.accountMessages').html('Invalid password. Please try again.')
+  $('form').trigger('reset')
 }
 
 const onSignOutSuccess = () => {
