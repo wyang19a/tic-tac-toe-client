@@ -30,6 +30,11 @@ const onSignUpFailure = () => {
 
 const onSignInSuccess = responseData => {
   store.user = responseData.user // add token to store
+  store.game = {}
+  $('td').html('')
+  $('#gameMessages').html('')
+  $('.game-inactive').show()
+  $('.game-active-top').hide()
   // console.log('user is', store.user)
   onSuccess('You are signed in!')
   $('.afterSignIn').show()
@@ -53,6 +58,7 @@ const onSignOutSuccess = () => {
   onSuccess('Signed out!')
   $('.afterSignIn').hide()
   $('.beforeSignIn').show()
+  $('#gameErrors').hide()
   // console.log(store.user)
 }
 

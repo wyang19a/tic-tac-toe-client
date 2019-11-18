@@ -10,15 +10,6 @@ const onGetAllGames = () => {
     .catch(ui.getGamesFailure) // .catch() returns failed result
 }
 
-const onNewGame = () => {
-  // console.log('new game')
-  api.newGame()
-    .then(ui.onGameStartSuccess)
-    .catch(ui.onGameStartFailure)
-  $('td').html('')
-  currentPlayer = 'X'
-}
-
 // start with currentPlayer X, change back and forth depending what's in currentPlayer.
 let currentPlayer = 'X'
 let moveNum = 0
@@ -34,6 +25,15 @@ const toggleTurn = () => {
     moveNum += 1
     return ui.onMove('Turn: X')
   }
+}
+const onNewGame = () => {
+  // console.log('new game')
+  api.newGame()
+    .then(ui.onGameStartSuccess)
+    .catch(ui.onGameStartFailure)
+  $('td').html('')
+  moveNum = 0
+  currentPlayer = 'X'
 }
 
 // listen for click, push X or O only if there's no string inside.
@@ -67,6 +67,7 @@ const onPlayMove = event => {
     }
   }
   putValue()
+  console.log(moveNum)
   // console.log(clickOnGrid)
   const storedCell = store.game.cells
   // check for winner
