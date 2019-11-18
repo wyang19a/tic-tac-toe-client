@@ -62,7 +62,7 @@ const onPlayMove = event => {
       // let over = store.game.over
       clickOnGrid.html(currentPlayer, toggleTurn())
       return ui.onMoveSuccess()
-    } else {
+    } else if (store.game.over === false) {
       return ui.onMoveFailure()
     }
   }

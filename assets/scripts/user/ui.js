@@ -37,7 +37,7 @@ const onSignInSuccess = responseData => {
 }
 
 const onSignInFailure = () => {
-  onFailure('Try Again.')
+  onFailure('Invalid email or password. Please try again.')
 }
 
 const onChangePasswordSuccess = () => {
