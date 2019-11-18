@@ -82,7 +82,10 @@ const onPlayMove = event => {
     // if there is no value inside clicked box, run toggleTurn() and pass in currentPlayer
     if (clickOnGrid.html() === '') {
       store.game.cells[gridID] = currentPlayer
-      console.log('here', store.game)
+      if (currentPlayer === 'O') {
+        clickOnGrid.css('color', '#2499A6')
+      }
+      // console.log('here', store.game)
       // let over = store.game.over
       clickOnGrid.html(currentPlayer, toggleTurn())
       return ui.onMoveSuccess()
