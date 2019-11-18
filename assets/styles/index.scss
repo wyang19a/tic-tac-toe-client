@@ -112,7 +112,7 @@ body {
   margin-bottom: 10px;
 }
 
-.getAllGames {
+.account {
   margin-bottom: 10px;
 }
 // .getAllGames {
@@ -188,7 +188,7 @@ body {
   }
 
   .board-left {
-    border: 1px solid $black;
+    // border: 1px solid $black;
     text-align: center;
     padding: 0;
   }
@@ -239,5 +239,26 @@ body {
   }
   .account-container {
     margin-top: 50px;
+  }
+  .change-password {
+    background-color: $color1;
+    border: 1px solid black;
+    width: 285px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  .getAllGames {
+    margin-bottom: 10px;
+  }
+  .gameRecords {
+    background-color: $color1;
+    width: 285px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 20px;
   }
 }
