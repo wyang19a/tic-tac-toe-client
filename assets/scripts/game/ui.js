@@ -43,7 +43,7 @@ const onMove = (message) => {
 const onGameStartSuccess = responseData => {
   store.game = responseData.game
   // console.log('store.game is', store.game)
-  onSuccess('Game started! Make your move.')
+  onSuccess('Make your first move.')
   $('.game-active-top').show()
   $('.game-inactive').hide()
 }
