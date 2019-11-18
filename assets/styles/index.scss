@@ -7,11 +7,10 @@ body {
 }
 
 .header-container {
-  display: flex;
   font-family: 'Fredoka One', cursive;
+  display: flex;
   justify-content: space-between;
 }
-
 .header-header {
   align-self: flex-end;
   margin-left: 15px;
@@ -29,21 +28,22 @@ body {
 }
 
 .sign-up-form {
+
   background-color: $color1;
-  border: 1px solid $black;
-  border-radius: 40px 0 0 40px;
-  flex-basis: 15em;
   padding: 15px 0;
+  border: 1px solid $black;
+  flex-basis: 15em;
   text-align: center;
+  border-radius: 40px 0 0 40px;
 }
 
 .sign-in-form {
   background-color: $color1;
-  border: 1px solid $black;
-  border-radius: 0 40px 40px 0;
-  flex-basis: 15em;
   padding-top: 15px;
+  border: 1px solid $black;
+  flex-basis: 15em;
   text-align: center;
+  border-radius: 0 40px 40px 0;
 }
 
 .top-status-container {
@@ -76,10 +76,10 @@ body {
 .board-left {
   // border: 1px solid $black;
   flex-basis: 125px;
-  height: 150px;
   margin-right: 10px;
-  padding: 61px, 0;
   text-align: center;
+  height: 150px;
+  padding: 61px, 0;
 }
 
 .game-table {
@@ -87,16 +87,15 @@ body {
   flex-basis: 1500px;
   height: width;
   justify-content: center;
-
   tr {
     td {
       border: 3px solid $color2;
-      color: $color4;
-      font-size: 50px;
-      height: 150px;
       min-width: 150px;
+      height: 150px;
       // padding: 5px;
       text-align: center;
+      font-size: 50px;
+      color: $color4;
     }
   }
 }
@@ -116,14 +115,29 @@ body {
 .getAllGames {
   margin-bottom: 10px;
 }
-
+// .getAllGames {
+//   margin-bottom: 10px;
+// }
 .change-password {
   background-color: $color1;
   border: 1px solid black;
-  width: 450px;
+  width: 465px;
   margin: 0 auto;
   text-align: center;
   padding: 5px;
+  border-radius: 20px;
+}
+
+.accountMessages {
+  height: 24px;
+}
+.gameRecords {
+  background-color: $color1;
+  width: 465px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid black;
   border-radius: 20px;
 }
 @media only screen and (max-width: 745px) {
@@ -135,7 +149,6 @@ body {
 
   .sign-up-form {
     border: 1px solid $black;
-
     flex-basis: 10em;
   }
 
@@ -151,11 +164,13 @@ body {
   }
 
   .top-status-bar {
+    // width: 90%;
     // border: 1px solid $black;
     flex-basis: 250px;
     height: 20px;
-
+    // display: flex;
     margin-bottom: 20px;
+    // padding-bottom: 1.5em;
 
     & > div {
       text-align: center;
@@ -173,18 +188,32 @@ body {
   }
 
   .board-left {
-    // border: 1px solid $black;
-    padding: 0;
+    border: 1px solid $black;
     text-align: center;
+    padding: 0;
   }
+  // .game-active {
+  // }
 
   .game-table {
     border: 1px solid $black;
     flex-basis: 350px;
     height: width;
     margin: 10px 0;
+
+    tr {
+      td {
+        // border: 3px solid $black;
+      }
+    }
   }
 
+  .board-right {
+    // border: 1px solid $black;
+    // flex: 1;
+    // flex-basis: 125px;
+    // margin-left: 10px;
+  }
   .account-container {
     margin-top: 100px;
   }
@@ -196,14 +225,15 @@ body {
     flex-wrap: wrap;
     margin-bottom: 60px;
   }
-
   .game-table {
     tr {
       td {
-        font-size: 50px;
-        height: 90px;
+        // border: 3px solid $black;
         min-width: 90px;
+        height: 90px;
+        // padding: 5px;
         text-align: center;
+        font-size: 50px;
       }
     }
   }

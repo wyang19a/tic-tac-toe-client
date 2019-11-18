@@ -3,11 +3,34 @@
 const ui = require('./ui')
 const api = require('./api')
 const store = require('../store')
+const getFormFields = require('../../../lib/get-form-fields')
 
+const onAccount = () => {
+  $('.afterSignIn').hide()
+  $('.beforeSignIn').hide()
+  $('.accountMenu').show()
+}
 const onGetAllGames = () => {
   api.getAllGames()
-    .then(ui.getGamesSuccess) // .then() returns successful result
-    .catch(ui.getGamesFailure) // .catch() returns failed result
+    .then(ui.getGamesSuccess)
+}
+
+const onGetOneGame = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const formData = getFormFields(form)
+
+  api.getOneGame(formData)
+    .then(ui.getGameSuccess)
+    .catch(ui.getGameFailure)
+}
+
+const onGoBack = () => {
+  $('.afterSignIn').show()
+  $('.accountMenu').hide()
+  $('.accountMessages').html('')
+  $('#results').html('')
 }
 
 // start with currentPlayer X, change back and forth depending what's in currentPlayer.
@@ -115,6 +138,9 @@ const addHandlers = event => {
   $('.game-table').on('click', onPlayMove)
   $('.newGame').on('click', onNewGame)
   $('.getAllGames').on('click', onGetAllGames)
+  $('.account').on('click', onAccount)
+  $('.backButton').on('click', onGoBack)
+  $('.get-one-game').on('submit', onGetOneGame)
 }
 
 module.exports = {

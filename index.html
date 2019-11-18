@@ -15,16 +15,17 @@
 
 <body>
   <div class="header-container">
-  <div class="header-header">
-  <h1>Tic-Tac-Toe</h1>
-</div>
-  <div class="header-signout">
-    <!-- <button class="accountInfo btn btn-secondary afterSignIn">account</button> -->
-  <form id="sign-out">
-    <button class="btn btn-danger afterSignIn">Sign Out</button>
-  </form>
-</div>
-</div>
+    <div class="header-header">
+      <h1>Tic-Tac-Toe</h1>
+    </div>
+    <div class="header-signout">
+      <!-- <button class="accountInfo btn btn-secondary afterSignIn">account</button> -->
+      <form id="sign-out">
+        <button class="btn btn-danger afterSignIn">Sign Out</button>
+      </form>
+      <button class="btn btn-secondary accountMenu backButton">go back</button>
+    </div>
+  </div>
   </br>
   <section class="beforeSignIn">
     <div id="message"></div>
@@ -56,7 +57,7 @@
     <div class="top-status-container">
       <div class="top-status-bar">
         <div class="game-inactive">Click New Game to begin!</div>
-        <div class="game-active-top">Game started!</div>
+        <div class="game-active-top">Game started! <span class='showGameID'></span></div>
         <div class="game-active" id="gameErrors"></div>
       </div>
     </div>
@@ -86,22 +87,35 @@
       <div class="board-right">
         <button class="newGame btn btn-secondary">New Game</button>
         <!-- <button class="newGame btn btn-secondary">start over</button> -->
-        <button class="getAllGames btn btn-secondary">See game record</button>
+        <button class="account btn btn-secondary">Account</button>
       </div>
     </div>
-    <div class="account-container">
     <!-- <form id="sign-out"> -->
-      <!-- <button class="btn btn-danger">Sign Out</button>
+    <!-- <button class="btn btn-danger">Sign Out</button>
     </form> -->
-  </br>
-  <form id="change-password" class="change-password">
-    <h3>Change Password</h3>
-    <input type="text" name="passwords[old]" placeholder="old password">
-    <input type="text" name="passwords[new]" placeholder="new password">
-    <button class="btn btn-secondary">Submit</button>
-  </form>
-</div>
-  <div id="results"></div>
+    </br>
+  </section>
+  <section class="accountMenu">
+    <div class="account-container">
+      <div class="accountMessages"></div>
+      </br>
+      <form id="change-password" class="change-password">
+        <h3>Change Password</h3>
+        <input type="text" name="passwords[old]" placeholder="old password">
+        <input type="text" name="passwords[new]" placeholder="new password">
+        <button class="btn btn-secondary">Submit</button>
+      </form>
+      </br>
+      <div class=gameRecords>
+        <h3>See game record</h3>
+        <button class="getAllGames btn btn-secondary">Show Me All Games</button>
+        <form id="getOneGame" class="get-one-game">
+          <input type="number" name="game[id]" placeholder="Game ID">
+          <button class="btn btn-secondary">Get One Game</button>
+        </form>
+        <div id="results"></div>
+      </div>
+    </div>
   </section>
 </body>
 

@@ -41,10 +41,22 @@ const getAllGames = () => {
     }
   })
 }
-console.log(getAllGames)
+
+const getOneGame = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + formData.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    }
+  })
+}
+
+// console.log(getAllGames)
 
 module.exports = {
   newGame,
   updateGame,
-  getAllGames
+  getAllGames,
+  getOneGame
 }
