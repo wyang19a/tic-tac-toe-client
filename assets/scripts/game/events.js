@@ -5,11 +5,6 @@ const api = require('./api')
 const store = require('../store')
 const getFormFields = require('../../../lib/get-form-fields')
 
-const onAccount = () => {
-  $('.afterSignIn').hide()
-  $('.beforeSignIn').hide()
-  $('.accountMenu').show()
-}
 const onGetAllGames = () => {
   api.getAllGames()
     .then(ui.getGamesSuccess)
@@ -26,53 +21,50 @@ const onGetOneGame = event => {
     .catch(ui.getGameFailure)
 }
 
-const onGoBack = () => {
-  $('.afterSignIn').show()
-  $('.accountMenu').hide()
-  $('.account-messages').html('')
-  $('#results').html('')
-}
-
 // start with currentPlayer X, change back and forth depending what's in currentPlayer.
 let currentPlayer = 'X'
-let moveNum = 0
+let moveNum = 1
 const toggleTurn = () => {
   // if current player is X, change current player to O and add number of move.
   if (currentPlayer === 'X') {
     currentPlayer = 'O'
     moveNum += 1
-    return ui.onMove('Turn: O')
+    ui.onMove('Turn: O')
   // if current player is O, change current player to X and add number of move.
   } else if (currentPlayer === 'O') {
     currentPlayer = 'X'
     moveNum += 1
-    return ui.onMove('Turn: X')
+    ui.onMove('Turn: X')
   }
 }
 const onNewGame = () => {
   // console.log('new game')
-  api.newGame()
-    .then(ui.onGameStartSuccess)
-    .catch(ui.onGameStartFailure)
-  $('td').html('')
-  $('#gameErrors').hide()
-  moveNum = 0
-  currentPlayer = 'X'
+  if (store.game !== {} && moveNum === 0) {
+    ui.onGameStartFailure()
+  } else {
+    api.newGame()
+      .then(ui.onGameStartSuccess)
+    $('td').html('')
+    $('#gameErrors').hide()
+    moveNum = 0
+    currentPlayer = 'X'
+  // console.log(store.game)
+  }
 }
 
 // listen for click, push X or O only if there's no string inside.
 const endGame = () => {
   if (moveNum === 9) {
-    moveNum = 0
+    moveNum = 1
     currentPlayer = 'X'
     store.game.over = true
-    return ui.onDraw("It's a tie. </br> Try again!")
+    ui.onDraw()
   }
   // resets stored game info when game is over.
   if (store.game.over === true) {
     currentPlayer = 'X'
     store.game = {}
-  // return ui.onGameFinish('Click start over to play again!')
+    // return ui.onGameFinish()
   }
 }
 const onPlayMove = event => {
@@ -90,13 +82,14 @@ const onPlayMove = event => {
       // console.log('here', store.game)
       // let over = store.game.over
       clickOnGrid.html(currentPlayer, toggleTurn())
-      return ui.onMoveSuccess()
+      ui.onMoveSuccess()
+      $('.game-active-top').trigger('reset')
     } else if (store.game.over === false) {
-      return ui.onMoveFailure()
+      ui.onMoveFailure()
     }
   }
   putValue()
-  console.log(moveNum)
+  // console.log(moveNum)
   // console.log(clickOnGrid)
   const storedCell = store.game.cells
   // check for winner
@@ -110,10 +103,10 @@ const onPlayMove = event => {
     (storedCell[3] === 'X' && storedCell[4] === 'X' && storedCell[5] === 'X') ||
     (storedCell[6] === 'X' && storedCell[7] === 'X' && storedCell[8] === 'X')) {
       // reset game move to 0, set game over, and display winner X
-      moveNum = 0
+      moveNum = 1
       store.game.over = true
       // currentPlayer = 'X'
-      return ui.onWinner('X wins!')
+      ui.onWinner('X wins!')
     } else if ((storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') ||
     (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') ||
     (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') ||
@@ -123,10 +116,10 @@ const onPlayMove = event => {
     (storedCell[3] === 'O' && storedCell[4] === 'O' && storedCell[5] === 'O') ||
     (storedCell[6] === 'O' && storedCell[7] === 'O' && storedCell[8] === 'O')) {
       // reset game move to 0, set game over, and display winner O
-      moveNum = 0
+      moveNum = 1
       store.game.over = true
       // currentPlayer = 'X'
-      return ui.onWinner('O Wins!')
+      ui.onWinner('O Wins!')
     }
   }
   checkForWin()
@@ -143,8 +136,6 @@ const addHandlers = event => {
   $('.game-table').on('click', onPlayMove)
   $('.new-game').on('click', onNewGame)
   $('.get-all-games').on('click', onGetAllGames)
-  $('.account').on('click', onAccount)
-  $('.backButton').on('click', onGoBack)
   $('.get-one-game').on('submit', onGetOneGame)
 }
 

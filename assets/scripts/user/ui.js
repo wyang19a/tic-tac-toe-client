@@ -7,7 +7,7 @@ $('.accountMenu').hide()
 $('.sign-up-form').hide()
 
 const onSuccess = message => {
-  $('#message')
+  $('.message')
     .removeClass('failure')
     .addClass('success')
     .text(message)
@@ -15,7 +15,7 @@ const onSuccess = message => {
 }
 
 const onFailure = message => {
-  $('#message')
+  $('.message')
     .removeClass('success')
     .addClass('failure')
     .text(message)
@@ -48,7 +48,7 @@ const onSignInFailure = () => {
 }
 
 const onChangePasswordSuccess = () => {
-  onSuccess('Password change successful.')
+  $('.account-messages').html('Password change successful.')
   $('form').trigger('reset')
 }
 
@@ -66,6 +66,32 @@ const onSignOutSuccess = () => {
   // console.log(store.user)
 }
 
+const onClickAccountSuccess = () => {
+  $('.afterSignIn').hide()
+  $('.beforeSignIn').hide()
+  $('.accountMenu').show()
+}
+
+const onGoBackSuccess = () => {
+  $('.afterSignIn').show()
+  $('.accountMenu').hide()
+  $('.account-messages').html('')
+  $('#results').html('')
+}
+
+const onToSignUpSuccess = () => {
+  $('.sign-up-form').show()
+  $('.sign-in-form').hide()
+  $('.message').html('')
+  $('form').trigger('reset')
+}
+
+const onToSignInSuccess = () => {
+  $('.sign-up-form').hide()
+  $('.sign-in-form').show()
+  $('.message').html('')
+}
+
 module.exports = {
   onSignUpFailure,
   onSignUpSuccess,
@@ -73,5 +99,9 @@ module.exports = {
   onSignInFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
-  onSignOutSuccess
+  onSignOutSuccess,
+  onClickAccountSuccess,
+  onToSignInSuccess,
+  onToSignUpSuccess,
+  onGoBackSuccess
 }
