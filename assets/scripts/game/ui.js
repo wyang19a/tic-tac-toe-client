@@ -3,7 +3,6 @@ const store = require('../store')
 
 $('.game-active-top').hide()
 // $('.game-table').hide()
-
 const getGamesSuccess = response => {
   const games = response.games
 
@@ -33,7 +32,7 @@ const getGamesSuccess = response => {
       <p>User email: ${games.player_x.email}</p>
     `
   })
-  $('#results').html(gamesHtml)
+  $('#results').html('</br>You played ' + games.length + ' games. </br></br>' + gamesHtml)
 }
 
 const getGameSuccess = (data) => {
@@ -70,41 +69,37 @@ const getGameFailure = () => {
 }
 
 const onSuccess = message => {
-  $('#gameMessages')
-    .removeClass('failure')
-    .addClass('success')
-    .html(message)
+  $('#gameMessages').html(message)
 }
 
-const onFailure = message => {
-  $('#gameMessages')
-    .removeClass('success')
-    .addClass('failure')
-    .html(message)
-}
+// const onFailure = message => {
+//   $('#gameMessages')
+//     .removeClass('success')
+//     .addClass('failure')
+//     .html(message)
+// }
 
 const onMove = (message) => {
   onSuccess(message)
-  $('.game-active').show()
-  $('.game-inactive').hide()
 }
 
+const gameStartMessage = 'Game started! Game ID: '
 const onGameStartSuccess = responseData => {
   store.game = responseData.game
   // console.log('store.game is', store.game)
   onSuccess('Make your first move.')
-  $('.game-active-top').show()
+  $('.game-active-top').show().html(gameStartMessage + store.game.id)
   $('.game-inactive').hide()
-  $('.showGameID').html('Game ID: ' + store.game.id)
+  $('#gameMessages').removeClass('game-result-message').css('color', 'black')
 }
-const onGameStartFailure = (message) => {
-  onFailure(message)
+
+const onGameStartFailure = () => {
+  $('.game-active-top').html('Game already started.')
 }
+
 const onMoveSuccess = (message) => {
-  onSuccess(message)
-  $('.game-active').show()
-  $('.game-inactive').hide()
   $('#gameErrors').hide()
+  $('.game-active-top').show().html(gameStartMessage + store.game.id)
 }
 
 const onMoveFailure = () => {
@@ -113,19 +108,25 @@ const onMoveFailure = () => {
 
 const onWinner = (message) => {
   onSuccess(message)
+  $('#gameMessages').addClass('game-result-message')
+  $('.game-active-top').hide()
+  $('.game-inactive').show()
+  if ($('#gameMessages').text() === 'X wins!') {
+    $('#gameMessages').css('color', '#E85A4F')
+  } else {
+    $('#gameMessages').css('color', '#2499A6')
+  }
+}
+
+const onDraw = () => {
+  onSuccess("It's a tie. </br> Try again!")
   $('.game-active-top').hide()
   $('.game-inactive').show()
 }
 
-const onDraw = (message) => {
-  onSuccess(message)
-  $('.game-active-top').hide()
-  $('.game-inactive').show()
-}
-
-const onGameFinish = (message) => {
-  onSuccess(message)
-}
+// const onGameFinish = () => {
+//   onSuccess('Click New Game to play again!')
+// }
 module.exports = {
   onMove,
   onGameStartSuccess,
@@ -133,7 +134,6 @@ module.exports = {
   onMoveSuccess,
   onMoveFailure,
   onWinner,
-  onGameFinish,
   onDraw,
   getGamesSuccess,
   getGameSuccess,

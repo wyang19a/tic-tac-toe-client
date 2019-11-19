@@ -48,15 +48,19 @@ const onSignOut = event => {
 }
 
 const onToSignUp = () => {
-  $('.sign-in-form').hide()
-  $('.sign-up-form').show()
-  $('#message').html('')
+  ui.onToSignUpSuccess()
 }
 
 const onToSignIn = () => {
-  $('.sign-up-form').hide()
-  $('.sign-in-form').show()
-  $('#message').html('')
+  ui.onToSignInSuccess()
+}
+
+const onClickAccount = () => {
+  ui.onClickAccountSuccess()
+}
+
+const onGoBack = () => {
+  ui.onGoBackSuccess()
 }
 
 const addHandlers = event => {
@@ -66,6 +70,8 @@ const addHandlers = event => {
   $('#sign-out').on('submit', onSignOut)
   $('.to-sign-up').on('click', onToSignUp)
   $('.to-sign-in').on('click', onToSignIn)
+  $('.account').on('click', onClickAccount)
+  $('.backButton').on('click', onGoBack)
 }
 
 module.exports = {
