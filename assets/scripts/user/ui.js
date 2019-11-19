@@ -58,12 +58,11 @@ const onChangePasswordFailure = () => {
 }
 
 const onSignOutSuccess = () => {
-  store.user = {} // remove token from store.js
+  store.user = {}
   onSuccess('Signed out!')
   $('.afterSignIn').hide()
   $('.beforeSignIn').show()
   $('#gameErrors').hide()
-  // console.log(store.user)
 }
 
 const onClickAccountSuccess = () => {

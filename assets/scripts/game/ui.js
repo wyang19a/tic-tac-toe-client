@@ -72,13 +72,6 @@ const onSuccess = message => {
   $('#gameMessages').html(message)
 }
 
-// const onFailure = message => {
-//   $('#gameMessages')
-//     .removeClass('success')
-//     .addClass('failure')
-//     .html(message)
-// }
-
 const onMove = (message) => {
   onSuccess(message)
 }
@@ -124,9 +117,6 @@ const onDraw = () => {
   $('.game-inactive').show()
 }
 
-// const onGameFinish = () => {
-//   onSuccess('Click New Game to play again!')
-// }
 module.exports = {
   onMove,
   onGameStartSuccess,
