@@ -19,11 +19,14 @@
       <h1>Tic-Tac-Toe</h1>
     </div>
     <div class="header-signout">
+      <div class="account-signout">
+      <button class="account btn btn-secondary afterSignIn">Account</button>
       <!-- <button class="accountInfo btn btn-secondary afterSignIn">account</button> -->
       <form id="sign-out">
         <button class="btn btn-danger afterSignIn">Sign Out</button>
       </form>
       <button class="btn btn-secondary accountMenu backButton">go back</button>
+  </div>
     </div>
   </div>
   </br>
@@ -34,21 +37,26 @@
       <div class="sign-up-form">
         <h3>Sign up</h3>
         <form id="sign-up">
-          <p>Please do not use real personal email/password. Use fake(e.g. babo@babo, pw: 123)</p>
+          <p>Please do not use real personal email/password.</br>Use fake(e.g. abc@abc, pw: abc)</p>
           <!-- </br> -->
-          <input type="email" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm password">
+          <input type="email" size="15" name="credentials[email]" placeholder="Email">
+          <input type="password" size="15" name="credentials[password]" placeholder="Password">
+          <input type="password" size="15" name="credentials[password_confirmation]" placeholder="Confirm password">
+          </br>
           <button class="btn btn-secondary">Submit</button>
+          <p class="to-sign-up-p">Have an account?</br>Sign in <a href="#" class="to-sign-in">here</a></p>
         </form>
       </div>
       <!-- </br> -->
       <div class="sign-in-form">
         <h3>Sign In</h3>
         <form id="sign-in">
-          <input type="email" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="email" size="15" name="credentials[email]" placeholder="Email">
+          <input type="password" size="15" name="credentials[password]" placeholder="Password">
+        </br></br>
           <button class="btn btn-secondary">Submit</button>
+        </br>
+        <p class='to-sign-up-p'>Already have account?</br>Sign up <a href="#" class="to-sign-up">here</a></p>
         </form>
       </div>
     </div>
@@ -85,9 +93,8 @@
         </table>
       </div>
       <div class="board-right">
-        <button class="newGame btn btn-secondary">New Game</button>
+        <button class="new-game btn btn-secondary">New Game</button>
         <!-- <button class="newGame btn btn-secondary">start over</button> -->
-        <button class="account btn btn-secondary">Account</button>
       </div>
     </div>
     <!-- <form id="sign-out"> -->
@@ -97,20 +104,22 @@
   </section>
   <section class="accountMenu">
     <div class="account-container">
-      <div class="accountMessages"></div>
+      <div class="account-messages"></div>
       </br>
       <form id="change-password" class="change-password">
         <h3>Change Password</h3>
-        <input type="text" name="passwords[old]" placeholder="old password">
-        <input type="text" name="passwords[new]" placeholder="new password">
+        <input type="text" size="15" name="passwords[old]" placeholder="old password">
+        <input type="text" size="15" name="passwords[new]" placeholder="new password">
         <button class="btn btn-secondary">Submit</button>
       </form>
       </br>
-      <div class=gameRecords>
+      <div class=game-records>
         <h3>See game record</h3>
-        <button class="getAllGames btn btn-secondary">Show Me All Games</button>
+        <button class="get-all-games btn btn-secondary">Show Me All Games</button>
+        </br></br>
         <form id="getOneGame" class="get-one-game">
-          <input type="number" name="game[id]" placeholder="Game ID">
+          <input type="number" size="5" name="game[id]" placeholder="Game ID">
+          </br>
           <button class="btn btn-secondary">Get One Game</button>
         </form>
         <div id="results"></div>

@@ -29,7 +29,7 @@ const onGetOneGame = event => {
 const onGoBack = () => {
   $('.afterSignIn').show()
   $('.accountMenu').hide()
-  $('.accountMessages').html('')
+  $('.account-messages').html('')
   $('#results').html('')
 }
 
@@ -66,7 +66,7 @@ const endGame = () => {
     moveNum = 0
     currentPlayer = 'X'
     store.game.over = true
-    return ui.onDraw("It's a tie")
+    return ui.onDraw("It's a tie. </br> Try again!")
   }
   // resets stored game info when game is over.
   if (store.game.over === true) {
@@ -84,6 +84,8 @@ const onPlayMove = event => {
       store.game.cells[gridID] = currentPlayer
       if (currentPlayer === 'O') {
         clickOnGrid.css('color', '#2499A6')
+      } else {
+        clickOnGrid.css('color', '#E85A4F')
       }
       // console.log('here', store.game)
       // let over = store.game.over
@@ -139,7 +141,7 @@ const onPlayMove = event => {
 }
 const addHandlers = event => {
   $('.game-table').on('click', onPlayMove)
-  $('.newGame').on('click', onNewGame)
+  $('.new-game').on('click', onNewGame)
   $('.getAllGames').on('click', onGetAllGames)
   $('.account').on('click', onAccount)
   $('.backButton').on('click', onGoBack)
