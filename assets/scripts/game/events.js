@@ -142,7 +142,7 @@ const onPlayMove = event => {
 const addHandlers = event => {
   $('.game-table').on('click', onPlayMove)
   $('.new-game').on('click', onNewGame)
-  $('.getAllGames').on('click', onGetAllGames)
+  $('.get-all-games').on('click', onGetAllGames)
   $('.account').on('click', onAccount)
   $('.backButton').on('click', onGoBack)
   $('.get-one-game').on('submit', onGetOneGame)
