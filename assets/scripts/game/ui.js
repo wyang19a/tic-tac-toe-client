@@ -65,7 +65,7 @@ const getGameSuccess = (data) => {
 }
 
 const getGameFailure = () => {
-  $('.accountMessages').html('Invalid game ID. Please try again.')
+  $('.account-messages').html('Invalid game ID. Please try again.')
   $('form').trigger('reset')
 }
 
@@ -73,14 +73,14 @@ const onSuccess = message => {
   $('#gameMessages')
     .removeClass('failure')
     .addClass('success')
-    .text(message)
+    .html(message)
 }
 
 const onFailure = message => {
   $('#gameMessages')
     .removeClass('success')
     .addClass('failure')
-    .text(message)
+    .html(message)
 }
 
 const onMove = (message) => {
@@ -95,7 +95,7 @@ const onGameStartSuccess = responseData => {
   onSuccess('Make your first move.')
   $('.game-active-top').show()
   $('.game-inactive').hide()
-  $('.showGameID').html('This is Game ID: ' + store.game.id)
+  $('.showGameID').html('Game ID: ' + store.game.id)
 }
 const onGameStartFailure = (message) => {
   onFailure(message)
