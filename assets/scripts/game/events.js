@@ -26,19 +26,21 @@ let currentPlayer = 'X'
 // set move number to 1 becuase moveNum = 0 will block new game from starting.
 // moveNum will be set to 0 when user clicks New Game.
 let moveNum = 1
-const toggleTurn = () => {
-  // if current player is X, change current player to O and add number of move.
-  if (currentPlayer === 'X') {
-    currentPlayer = 'O'
-    moveNum += 1
-    ui.onMove('Turn: O')
-  // if current player is O, change current player to X and add number of move.
-  } else if (currentPlayer === 'O') {
-    currentPlayer = 'X'
-    moveNum += 1
-    ui.onMove('Turn: X')
-  }
-}
+
+// const toggleTurn = () => {
+//   // if current player is X, change current player to O and add number of move.
+//   if (currentPlayer === 'X') {
+//     currentPlayer = 'O'
+//     moveNum += 1
+//     ui.onMove('Turn: O')
+//   // if current player is O, change current player to X and add number of move.
+//   } else if (currentPlayer === 'O') {
+//     currentPlayer = 'X'
+//     moveNum += 1
+//     ui.onMove('Turn: X')
+//   }
+// }
+
 
 // start a new game
 const onNewGame = () => {
@@ -60,6 +62,30 @@ const onNewGame = () => {
   // console.log(store.game)
   }
 }
+
+// for (let i = 0; $('#' + i) !== ('X' || 'O'); getRandomInt(9)) {
+//   $('#' + i).html('O').css('color', '#2499A6')
+// }
+
+const boxes = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+const randomNumBoxes = () => {
+  return boxes[Math.floor(Math.random() * Math.floor(boxes.length))]
+}
+
+const aITurn = () => {
+  const i = randomNumBoxes()
+  const random = '#' + i
+  console.log('i is', i)
+  for (let j = 0; j < 9; j++) {
+    if (j === i) {
+      boxes.splice(j, 1)
+      console.log('boxes on User turn is', boxes)
+    }
+    $(random).html('O').css('color', '#2499A6')
+  }
+}
+// console.log(moveNum)
+
 // define end game.
 const endGame = () => {
   // upon 9 moves, set game.over = true, reset moveNum to 1, currentPlayer to X.
@@ -86,15 +112,23 @@ const onPlayMove = event => {
     // otherwise, there is any value and game is not over yet, display move fail message.
     if (clickOnGrid.html() === '') {
       store.game.cells[gridID] = currentPlayer
+      // console.log(boxes)
       // set color of X and O.
-      if (currentPlayer === 'O') {
-        clickOnGrid.css('color', '#2499A6')
-      } else {
-        clickOnGrid.css('color', '#E85A4F')
-      }
+      // if (currentPlayer === 'O') {
+      //   clickOnGrid.css('color', '#2499A6')
+      // } else {
+      //   clickOnGrid.css('color', '#E85A4F')
+      // }
       // console.log('here', store.game)
       // pass in grid's currentPlayer to html and toggle turn.
-      clickOnGrid.html(currentPlayer, toggleTurn())
+      for (let j = 0; j < 9; j++) {
+        if (j === gridID) {
+          boxes.splice(j, 1)
+        }
+      }
+      console.log('clicked gridID is', gridID)
+      console.log('boxes on user AI is', boxes)
+      clickOnGrid.html('X', aITurn()).css('color', '#E85A4F')
       ui.onMoveSuccess()
     } else if (store.game.over === false) {
       ui.onMoveFailure()
