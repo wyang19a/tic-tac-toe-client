@@ -32,7 +32,7 @@ const toggleTurn = () => {
     currentPlayer = 'O'
     moveNum += 1
     ui.onMove('Turn: O')
-  // if current player is O, change current player to X and add number of move.
+    // if current player is O, change current player to X and add number of move.
   } else if (currentPlayer === 'O') {
     currentPlayer = 'X'
     moveNum += 1
@@ -51,13 +51,13 @@ const onNewGame = () => {
   } else {
     api.newGame()
       .then(ui.onGameStartSuccess)
-      // upon starting a new game, empty boxes and hide previous game error.
+    // upon starting a new game, empty boxes and hide previous game error.
     $('td').html('')
     $('#gameErrors').hide()
     // reset move number to 0, and current player to X.
     moveNum = 0
     currentPlayer = 'X'
-  // console.log(store.game)
+    // console.log(store.game)
   }
 }
 // define end game.
@@ -107,26 +107,26 @@ const onPlayMove = event => {
   // check for winner
   const checkForWin = () => {
     if ((storedCell[0] === 'X' && storedCell[1] === 'X' && storedCell[2] === 'X') ||
-    (storedCell[0] === 'X' && storedCell[3] === 'X' && storedCell[6] === 'X') ||
-    (storedCell[0] === 'X' && storedCell[4] === 'X' && storedCell[8] === 'X') ||
-    (storedCell[1] === 'X' && storedCell[4] === 'X' && storedCell[7] === 'X') ||
-    (storedCell[2] === 'X' && storedCell[4] === 'X' && storedCell[6] === 'X') ||
-    (storedCell[2] === 'X' && storedCell[5] === 'X' && storedCell[8] === 'X') ||
-    (storedCell[3] === 'X' && storedCell[4] === 'X' && storedCell[5] === 'X') ||
-    (storedCell[6] === 'X' && storedCell[7] === 'X' && storedCell[8] === 'X')) {
+      (storedCell[0] === 'X' && storedCell[3] === 'X' && storedCell[6] === 'X') ||
+      (storedCell[0] === 'X' && storedCell[4] === 'X' && storedCell[8] === 'X') ||
+      (storedCell[1] === 'X' && storedCell[4] === 'X' && storedCell[7] === 'X') ||
+      (storedCell[2] === 'X' && storedCell[4] === 'X' && storedCell[6] === 'X') ||
+      (storedCell[2] === 'X' && storedCell[5] === 'X' && storedCell[8] === 'X') ||
+      (storedCell[3] === 'X' && storedCell[4] === 'X' && storedCell[5] === 'X') ||
+      (storedCell[6] === 'X' && storedCell[7] === 'X' && storedCell[8] === 'X')) {
       // reset game move to 1, set game over, and display winner X
       moveNum = 1
       store.game.over = true
       // currentPlayer = 'X'
       ui.onWinner('X wins!')
     } else if ((storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') ||
-    (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') ||
-    (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') ||
-    (storedCell[1] === 'O' && storedCell[4] === 'O' && storedCell[7] === 'O') ||
-    (storedCell[2] === 'O' && storedCell[4] === 'O' && storedCell[6] === 'O') ||
-    (storedCell[2] === 'O' && storedCell[5] === 'O' && storedCell[8] === 'O') ||
-    (storedCell[3] === 'O' && storedCell[4] === 'O' && storedCell[5] === 'O') ||
-    (storedCell[6] === 'O' && storedCell[7] === 'O' && storedCell[8] === 'O')) {
+      (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') ||
+      (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') ||
+      (storedCell[1] === 'O' && storedCell[4] === 'O' && storedCell[7] === 'O') ||
+      (storedCell[2] === 'O' && storedCell[4] === 'O' && storedCell[6] === 'O') ||
+      (storedCell[2] === 'O' && storedCell[5] === 'O' && storedCell[8] === 'O') ||
+      (storedCell[3] === 'O' && storedCell[4] === 'O' && storedCell[5] === 'O') ||
+      (storedCell[6] === 'O' && storedCell[7] === 'O' && storedCell[8] === 'O')) {
       // reset game move to 1, set game over, and display winner O
       moveNum = 1
       store.game.over = true

@@ -153,16 +153,14 @@ a {
   font-size: 24px;
   font-weight: bold;
 }
-
 @media (max-width: 745px) {
-
   .top-status-container {
     margin-bottom: 100px;
   }
 
   .top-status-bar {
     flex-basis: 250px;
-}
+  }
 
   .board-container {
     flex-direction: column;
