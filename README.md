@@ -28,7 +28,7 @@ Game Board                                 | Account
 
 ### Working on this first project
 
-It was great opportunity to get used to coding and JavaScript. I had lots of fun digging through online resources and working with colleagues to come up with a solution when I'm stuck. I got to learn simple anatomy of a single page application running on JavaScript, and how to interact with a RESTful API using Ajax. Writing simple game logic was also very fun too. It was very interesting to see how other people came up with different solutions for the it.
+It was great opportunity to get used to coding and JavaScript. I had lots of fun digging through online resources and working with colleagues to come up with a solution to debug a problem. I also got to learn simple anatomy of a single page application running on JavaScript, and how to interact with a RESTful API using Ajax. Writing simple game logic was also very fun too. It was very interesting to see how other people came up with different solutions for the it. 
 
 ### Wireframe
 ![wireframe](./assets/images/wireframe.png)
