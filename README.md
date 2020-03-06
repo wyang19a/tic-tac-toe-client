@@ -1,8 +1,11 @@
 README
 
 # Tic-Tac-Toe
+Game Board                                 | Account
+:-----------------------------------------:|:---------------------------------:
+![gameboard](./assets/images/gameboard.png)|![page2](./assets/images/page2.png)
 
-### User stories:
+### User stories
 * User should be able to sign up, sign in, sign out, change password.
 * User should be able to start over in the middle of the game.
 * User should be able to restart a game when a game is over.
@@ -10,19 +13,25 @@ README
 * User should be able to see if there's any error.
 * User should be able to play on mobile device.
 
-### wireframe:
-https://app.moqups.com/pZIClmFr9I/view
 
-### Working on this project,
-I started off with setting up layout using flex box. I had difficulty making things stay where I wanted, and things overlapped on top of each other as I adjust screen size. I used table to make a game board, and started working on game logics. Most difficult and time consuming part of this was making clicks put X and O alternatively. After that, I was having problem patching data to API, but I was able to solve this problem with help of a colleague.
-
-### From here on,
-I will be working on this project continuously as I learn more throughout the curriculum at GA. As of right now, I am working on adding easy mode AI, and I was able to make computer place O inside empty box after user clicks a box to place X, and pass in correct values to the stored array received from API but I'm having trouble with patching the computer's move. I also need to figure out how to make the code work only when user clicks a button to play this mode.
+### TODOS
+* Easy mode AI
+* Multiplayer feature using multiple devices.
 
 ### technologies used
 * HTML
-* SCSS
+* Sass
 * Bootstrap
 * JavaScript
-* Jquery
+* jQuery
 * Ajax
+
+### Working on this first project
+
+It was great opportunity to get used to coding and JavaScript. I had lots of fun digging through online resources and working with colleagues to come up with a solution when I'm stuck. I learned simple data structure of a single page application running on JavaScript, and how to interact with a RESTful API using Ajax. Writing simple game logic was also very fun too. It was very interesting to see how other people came up with different solutions for the it.
+
+### Wireframe
+![wireframe](./assets/images/wireframe.png)
+### Links
+* [Wireframe](https://app.moqups.com/pZIClmFr9I/view)
+* [Deployed App](https://wyang19a.github.io/tic-tac-toe-client)
