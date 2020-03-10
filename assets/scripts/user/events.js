@@ -63,7 +63,7 @@ const addHandlers = event => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out-btn').on('click', onSignOut)
+  $('#sign-out-btn').on('submit', onSignOut)
   $('.to-sign-up').on('click', onToSignUp)
   $('.to-sign-in').on('click', onToSignIn)
   $('.account').on('click', onClickAccount)

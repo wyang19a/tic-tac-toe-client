@@ -22,7 +22,7 @@
     <div class="header-signout">
       <div class="account-signout">
         <button class="account btn btn-secondary afterSignIn">Account</button>
-          <button class="btn btn-danger afterSignIn sign-out-btn">Sign Out</button>
+          <form <button class="btn btn-danger afterSignIn sign-out-btn">Sign Out</button>
         <button class="btn btn-secondary accountMenu backButton">go back</button>
       </div>
     </div>
@@ -36,12 +36,14 @@
     <div class="sign-in-container">
       <div class="sign-in-form">
         <h3>Sign In</h3>
-        </br></br>
-        <form id="sign-in">
+        <form id="sign-in" class="auth-box">
+          Email
           <input class="email" type="email" size="15" name="credentials[email]" placeholder="Email">
+          Password
           <input class="password" type="password" size="15" name="credentials[password]" placeholder="Password">
-          </br></br>
-          <button class="btn btn-secondary">Submit</button>
+          </br>
+          <p class="auth-tag">Use Email: 1@1 Password: 1 if you do not want to sign up.</p>
+          <button class="btn btn-secondary submit-btn">Submit</button>
           </br>
           <p class='to-sign-up-p'>Don't have an account?</br>Sign up <a href="#" class="to-sign-up">here</a></p>
         </form>
@@ -53,7 +55,7 @@
           <input class="password" type="password" size="15" name="credentials[password]" placeholder="Password">
           <input class="password" type="password" size="15" name="credentials[password_confirmation]" placeholder="Confirm password">
           </br>
-          <p class="sign-up-tag">Please use fake email/password(test@test/123)</p>
+          <p class="auth-tag">Please use fake email/password(test@test/123)</p>
           <button class="btn btn-secondary">Submit</button>
           <p class="to-sign-up-p">Have an account?</br>Sign in <a href="#" class="to-sign-in">here</a></p>
         </form>

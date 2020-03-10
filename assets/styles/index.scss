@@ -1,6 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'variables';
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
   margin: 0 auto;
   width: 75%;
@@ -22,7 +26,7 @@ body {
   justify-content: space-between;
 }
 
-.header-header {
+.header-title {
   align-self: flex-end;
   margin-left: 15px;
 }
@@ -41,19 +45,28 @@ body {
 a {
   text-decoration: none;
 }
+.beforeSignIn{ // media
+  width: 32em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(20%, -50%);
+}
 
 .sign-in-container {
   align-items: stretch;
-  display: flex;
+  display: block;
   justify-content: center;
+  width: 32em;
 }
 
 .sign-in-form {
-  background-color: $color1;
+  background-color: #446FFC99;
   flex-basis: 30em;
-  height: 30em;
+  height: 80vh;
   padding: 100px;
-  text-align: center;
+  text-align: right;
+  display: grid;
 }
 
 .sign-up-form {
@@ -63,8 +76,31 @@ a {
   padding: 100px;
   text-align: center;
 }
-.sign-up-tag {
+
+.auth-tag {
+  font-size: 10px;
 }
+
+.email {
+  display: block;
+
+}
+
+.email, .password {
+  border: 0;
+  margin: 0 auto;
+  text-align: center;
+  transition: .3s background;
+  width: 100%;
+
+  &:focus {
+    background: #000;
+  }
+}
+
+.submit-btn {
+}
+
 .top-status-container {
   display: flex;
   justify-content: center;
