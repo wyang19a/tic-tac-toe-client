@@ -37,9 +37,7 @@ const onChangePassword = event => {
     .catch(ui.onChangePasswordFailure)
 }
 
-const onSignOut = event => {
-  event.preventDefault()
-
+const onSignOut = () => {
   api.signOut()
     .then(ui.onSignOutSuccess)
     .catch(ui.onSignOutFailure)
@@ -65,7 +63,7 @@ const addHandlers = event => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out-btn').on('click', onSignOut)
   $('.to-sign-up').on('click', onToSignUp)
   $('.to-sign-in').on('click', onToSignIn)
   $('.account').on('click', onClickAccount)

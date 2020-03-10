@@ -4,7 +4,7 @@
 <head>
   <title>Tic-Tac-Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Roboto&display=swap" rel="stylesheet">
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
@@ -14,21 +14,21 @@
 </head>
 
 <body>
+
   <div class="header-container">
-    <div class="header-header">
+    <div class="header-title">
       <h1>Tic-Tac-Toe</h1>
     </div>
     <div class="header-signout">
       <div class="account-signout">
         <button class="account btn btn-secondary afterSignIn">Account</button>
         <!-- <button class="accountInfo btn btn-secondary afterSignIn">account</button> -->
-        <form id="sign-out">
-          <button class="btn btn-danger afterSignIn">Sign Out</button>
-        </form>
+          <button class="btn btn-danger afterSignIn sign-out-btn">Sign Out</button>
         <button class="btn btn-secondary accountMenu backButton">go back</button>
       </div>
     </div>
   </div>
+
   </br>
   <section class="beforeSignIn">
     <div class="message"></div>
@@ -37,12 +37,12 @@
       <div class="sign-up-form">
         <h3>Sign up</h3>
         <form id="sign-up">
-          <p>Please do not use real personal email/password.</br>Use fake(e.g. abc@abc, pw: abc)</p>
           <!-- </br> -->
           <input type="email" size="15" name="credentials[email]" placeholder="Email">
           <input type="password" size="15" name="credentials[password]" placeholder="Password">
           <input type="password" size="15" name="credentials[password_confirmation]" placeholder="Confirm password">
           </br>
+          <p class="sign-up-tag">Please use fake email/password(test@test/123)</p>
           <button class="btn btn-secondary">Submit</button>
           <p class="to-sign-up-p">Have an account?</br>Sign in <a href="#" class="to-sign-in">here</a></p>
         </form>

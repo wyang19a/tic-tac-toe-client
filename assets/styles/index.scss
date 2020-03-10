@@ -2,8 +2,18 @@
 @import 'variables';
 
 body {
+  margin: 0 auto;
+  width: 75%;
   background-color: $background;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Roboto', sans-serif;
+}
+
+.navbar {
+  height: 60px;
+  border: 1px solid black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-container {
@@ -38,26 +48,23 @@ a {
   justify-content: center;
 }
 
-.sign-up-form {
-  background-color: $color1;
-  border: 3px solid $black;
-  border-radius: 40px;
-  flex-basis: 18em;
-  height: 377px;
-  padding: 15px 0;
-  text-align: center;
-}
-
 .sign-in-form {
   background-color: $color1;
-  border: 3px solid $black;
-  border-radius: 40px;
-  flex-basis: 18em;
-  height: 377px;
-  padding-top: 15px;
+  flex-basis: 30em;
+  height: 30em;
+  padding: 100px;
   text-align: center;
 }
 
+.sign-up-form {
+  background-color: $color1;
+  flex-basis: 30em;
+  height: 30em;
+  padding: 100px;
+  text-align: center;
+}
+.sign-up-tag {
+}
 .top-status-container {
   display: flex;
   justify-content: center;
