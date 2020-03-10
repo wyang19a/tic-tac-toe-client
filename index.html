@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Tic-Tac-Toe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +13,8 @@
 </head>
 
 <body>
-
+  <!-- START HEADER NAV SECTION ----------------------->
+  <section>
   <div class="header-container">
     <div class="header-title">
       <h1>Tic-Tac-Toe</h1>
@@ -22,32 +22,18 @@
     <div class="header-signout">
       <div class="account-signout">
         <button class="account btn btn-secondary afterSignIn">Account</button>
-        <!-- <button class="accountInfo btn btn-secondary afterSignIn">account</button> -->
           <button class="btn btn-danger afterSignIn sign-out-btn">Sign Out</button>
         <button class="btn btn-secondary accountMenu backButton">go back</button>
       </div>
     </div>
   </div>
-
+</section>
+<!-- END HEADER NAV SECTION ----------------------->
   </br>
+<!-- START SIGN-IN, SIGN-UP BOX ----------------------->
   <section class="beforeSignIn">
     <div class="message"></div>
-    <!-- </br> -->
     <div class="sign-in-container">
-      <div class="sign-up-form">
-        <h3>Sign up</h3>
-        <form id="sign-up">
-          <!-- </br> -->
-          <input type="email" size="15" name="credentials[email]" placeholder="Email">
-          <input type="password" size="15" name="credentials[password]" placeholder="Password">
-          <input type="password" size="15" name="credentials[password_confirmation]" placeholder="Confirm password">
-          </br>
-          <p class="sign-up-tag">Please use fake email/password(test@test/123)</p>
-          <button class="btn btn-secondary">Submit</button>
-          <p class="to-sign-up-p">Have an account?</br>Sign in <a href="#" class="to-sign-in">here</a></p>
-        </form>
-      </div>
-      <!-- </br> -->
       <div class="sign-in-form">
         <h3>Sign In</h3>
         </br></br>
@@ -60,8 +46,23 @@
           <p class='to-sign-up-p'>Don't have an account?</br>Sign up <a href="#" class="to-sign-up">here</a></p>
         </form>
       </div>
+      <div class="sign-up-form">
+        <h3>Sign up</h3>
+        <form id="sign-up">
+          <input type="email" size="15" name="credentials[email]" placeholder="Email">
+          <input type="password" size="15" name="credentials[password]" placeholder="Password">
+          <input type="password" size="15" name="credentials[password_confirmation]" placeholder="Confirm password">
+          </br>
+          <p class="sign-up-tag">Please use fake email/password(test@test/123)</p>
+          <button class="btn btn-secondary">Submit</button>
+          <p class="to-sign-up-p">Have an account?</br>Sign in <a href="#" class="to-sign-in">here</a></p>
+        </form>
+      </div>
     </div>
   </section>
+  <!-- END SIGN-IN, SIGN-UP BOX ----------------------->
+
+  <!-- START GAME BOARD ----------------------->
   <section class="afterSignIn">
     <div class="top-status-container">
       <div class="top-status-bar">
@@ -95,14 +96,13 @@
       </div>
       <div class="board-right">
         <button class="new-game btn btn-secondary">New Game</button>
-        <!-- <button class="newGame btn btn-secondary">start over</button> -->
       </div>
     </div>
-    <!-- <form id="sign-out"> -->
-    <!-- <button class="btn btn-danger">Sign Out</button>
-    </form> -->
     </br>
   </section>
+  <!-- END GAME BOARD ----------------------->
+
+  <!-- START ACCOUNT MENU ----------------------->
   <section class="accountMenu">
     <div class="account-container">
       <div class="account-messages"></div>
@@ -127,6 +127,7 @@
       </div>
     </div>
   </section>
+  <!-- END ACCOUNT MENU -->
 </body>
 
 </html>
