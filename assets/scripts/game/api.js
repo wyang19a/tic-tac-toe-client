@@ -15,7 +15,7 @@ const newGame = () => {
 
 const updateGame = (index, value, over) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: {
       Authorization: `Token token=${store.user.token}`
@@ -44,7 +44,7 @@ const getAllGames = () => {
 
 const getOneGame = (formData) => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + formData.game.id,
+    url: config.apiUrl + '/games/' + formData.game._id,
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`

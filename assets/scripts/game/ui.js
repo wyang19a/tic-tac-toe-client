@@ -10,7 +10,7 @@ const getGamesSuccess = response => {
 
   games.forEach(games => {
     gamesHtml += `
-      <h4>Game ID: ${games.id}</h4>
+      <h4>Game ID: ${games._id}</h4>
       <table class="game-table">
         <tr>
           <td class="recordCell">${games.cells[0]}</td>
@@ -29,7 +29,7 @@ const getGamesSuccess = response => {
         </tr>
       </table>
       <p>Game over? ${games.over}</p>
-      <p>User email: ${games.player_x.email}</p>
+      <p>Game owner: ${games.owner}</p>
     `
   })
   $('#results').html('</br>You played ' + games.length + ' games. </br></br>' + gamesHtml)
@@ -38,7 +38,7 @@ const getGamesSuccess = response => {
 const getGameSuccess = (data) => {
   const game = data.game
   const bookHtml = `
-  <h4>Game ID: ${game.id}</h4>
+  <h4>Game ID: ${game._id}</h4>
   <table class="game-table">
     <tr>
       <td class="recordCell">${game.cells[0]}</td>
@@ -57,7 +57,7 @@ const getGameSuccess = (data) => {
     </tr>
   </table>
   <p>Game over? ${game.over}</p>
-  <p>User email: ${game.player_x.email}</p>
+  <p>Game owner: ${game.owner}</p>
   `
   $('#results').html('').html(bookHtml)
   $('form').trigger('reset')
@@ -81,7 +81,7 @@ const onGameStartSuccess = responseData => {
   store.game = responseData.game
   // console.log('store.game is', store.game)
   onSuccess('Make your first move.')
-  $('.game-active-top').show().html(gameStartMessage + store.game.id)
+  $('.game-active-top').show().html(gameStartMessage + store.game._id)
   $('.game-inactive').hide()
   $('#gameMessages').removeClass('game-result-message').css('color', 'black')
 }
@@ -92,7 +92,7 @@ const onGameStartFailure = () => {
 
 const onMoveSuccess = (message) => {
   $('#gameErrors').hide()
-  $('.game-active-top').show().html(gameStartMessage + store.game.id)
+  $('.game-active-top').show().html(gameStartMessage + store.game._id)
 }
 
 const onMoveFailure = () => {

@@ -81,15 +81,16 @@ const endGame = () => {
   }
 }
 // define what to do when user clicks in boxes.
-// if (store.game.id !== undefined) {}
+// if (store.game._id !== undefined) {}
 
 const onPlayMove = event => {
   const clickOnGrid = $(event.target)
+  console.log(store.game)
   const gridID = event.target.id
   const putValue = () => {
     // if there is no value inside clicked box, run toggleTurn() and pass in currentPlayer
     // otherwise, there is any value and game is not over yet, display move fail message.
-    if (clickOnGrid.html() === '' && store.game.id) {
+    if (clickOnGrid.html() === '' && store.game._id) {
       store.game.cells[gridID] = currentPlayer
       // set color of X and O.
       if (currentPlayer === 'O') {
@@ -111,7 +112,7 @@ const onPlayMove = event => {
   const storedCell = store.game.cells
   // check for winner
   const checkForWin = () => {
-    if (store.game.id && ((storedCell[0] === 'X' && storedCell[1] === 'X' && storedCell[2] === 'X') ||
+    if (store.game._id && ((storedCell[0] === 'X' && storedCell[1] === 'X' && storedCell[2] === 'X') ||
       (storedCell[0] === 'X' && storedCell[3] === 'X' && storedCell[6] === 'X') ||
       (storedCell[0] === 'X' && storedCell[4] === 'X' && storedCell[8] === 'X') ||
       (storedCell[1] === 'X' && storedCell[4] === 'X' && storedCell[7] === 'X') ||
@@ -124,7 +125,7 @@ const onPlayMove = event => {
       store.game.over = true
       // currentPlayer = 'X'
       ui.onWinner('X wins!')
-    } else if (store.game.id && ((storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') ||
+    } else if (store.game._id && ((storedCell[0] === 'O' && storedCell[1] === 'O' && storedCell[2] === 'O') ||
       (storedCell[0] === 'O' && storedCell[3] === 'O' && storedCell[6] === 'O') ||
       (storedCell[0] === 'O' && storedCell[4] === 'O' && storedCell[8] === 'O') ||
       (storedCell[1] === 'O' && storedCell[4] === 'O' && storedCell[7] === 'O') ||
@@ -147,7 +148,7 @@ const onPlayMove = event => {
   } else {
     actualPlayer = 'X'
   }
-  if (store.game.id) {
+  if (store.game._id) {
     api.updateGame(gridID, actualPlayer, store.game.over)
     endGame()
   }
