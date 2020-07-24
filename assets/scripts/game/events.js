@@ -85,7 +85,6 @@ const endGame = () => {
 
 const onPlayMove = event => {
   const clickOnGrid = $(event.target)
-  console.log(store.game)
   const gridID = event.target.id
   const putValue = () => {
     // if there is no value inside clicked box, run toggleTurn() and pass in currentPlayer
